@@ -251,7 +251,7 @@ CREATE INDEX idx_events_created_at ON events(created_at);
 ## Production Notes
 
 - The API is intentionally fire-and-forget: `POST` enqueues and returns 202.
-  It will not crash if Postgres goes down, only the worker will fail jobs.
+  If PostgreSQL becomes unavailable, the application remains operational, but the worker will be unable to process jobs successfully.
 - The worker uses `concurrency=10` by default
   (override with `WORKER_CONCURRENCY=N`).
 - Counters in Redis are fed from the worker (not the API) so they only count
