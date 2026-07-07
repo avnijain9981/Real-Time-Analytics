@@ -192,7 +192,7 @@ BullMQ's failed queue — the worker never crashes on a bad job.
 
 ### `GET /api/stats`
 
-Returns current Redis counters + last 20 DB events. Useful for diagnostics.
+Displays the current Redis counters and the latest 20 database events for diagnostic purposes.
 
 ### `GET /health`
 
