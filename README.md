@@ -188,7 +188,7 @@ Response (`202 Accepted`):
 Validation: `type` must match `^[a-zA-Z0-9_\-:.]{1,100}$`,
 `metadata` must be a plain object, `timestamp` is optional ISO date.
 Failures get queued retries (3 attempts, exponential backoff) and end up in
-BullMQ's failed queue — the worker never crashes on a bad job.
+BullMQ's failed queue ensures the worker continues running even when a job fails.
 
 ### `GET /api/stats`
 
