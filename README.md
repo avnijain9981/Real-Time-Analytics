@@ -206,10 +206,10 @@ Liveness probe.
 | `event:new`       | server → client | persisted event, fired by the worker for every job   |
 | `stats:update`    | server → client | `{ counters, ts }` every 5 seconds                   |
 
-The worker publishes messages via Redis `PUBLISH events:new`, and the API server 
-subscribes to them, distributing the events across clients using Socket.io. This 
-keeps the two processes loosely coupled — workers and API servers can be scaled 
-separately as needed.
+The worker publishes via Redis `PUBLISH events:new`; the API server subscribes
+and fans out over Socket.io. This decouples the two processes — you can scale
+workers and API servers independently. just change the wordings
+
 
 ## Schema
 
