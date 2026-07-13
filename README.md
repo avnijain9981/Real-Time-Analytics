@@ -208,7 +208,7 @@ Liveness probe.
 
 The worker publishes via Redis `PUBLISH events:new`; the API server subscribes
 and fans out over Socket.io. This decouples the two processes — you can scale
-workers and API servers independently. just change the wordings
+workers and API servers independently. 
 
 
 ## Schema
