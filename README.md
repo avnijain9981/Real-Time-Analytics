@@ -206,8 +206,7 @@ Liveness probe.
 | `event:new`       | server → client | persisted event, fired by the worker for every job   |
 | `stats:update`    | server → client | `{ counters, ts }` every 5 seconds                   |
 
-The worker publishes processed events to Redis via `PUBLISH events:new`, and the API server subscribes to that channel, forwarding updates to connected clients over Socket.io. This decouples the two processes — workers and API servers can be scaled independently without one affecting the other.
-
+The worker sends processed events to Redis using PUBLISH events:new. The API server listens to this channel and forwards the received updates to connected clients through Socket.io. This architecture decouples the worker and API server, allowing each to scale independently without impacting the other.
 
 ## Schema
 
